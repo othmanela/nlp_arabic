@@ -9,11 +9,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Othmane Laousy"]
   spec.email         = ["othmane.laousy@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Natural Language Processing Tools for Arabic}
+  spec.description   = %q{As for version 0.1.0 the gem cleans the text using a stop list and stemms arabic words}
+  spec.homepage      = "https://github.com/othmanela/nlp_arabic"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test)/}) }
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
