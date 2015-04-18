@@ -1,13 +1,12 @@
 require "test_helper"
 
 class StemmerTest < Test::Unit::TestCase
-
-  def test_cleaning_words
-    assert_equal "تكنولوجيا", NlpArabic.clean("تكنولوجيا.?")
-    assert_equal "فيسبوك", NlpArabic.clean("._,،فيسبوك")
-    assert_equal "يوتيوب", NlpArabic.clean("\"يوتيوب\'؟(")
-    assert_equal "يوتيوب", NlpArabic.clean(";&يوتيوب)")
-    assert_equal "", NlpArabic.clean("&&&")
+  def test_removing_na_characters
+    assert_equal "تكنولوجيا", NlpArabic.remove_na_characters("تكنولوجيا.?")
+    assert_equal "فيسبوك", NlpArabic.remove_na_characters("._,،فيسبوك")
+    assert_equal "يوتيوب", NlpArabic.remove_na_characters("\"يوتيوب\'؟(")
+    assert_equal "يوتيوب", NlpArabic.remove_na_characters(";&يوتيوب)")
+    assert_equal "", NlpArabic.remove_na_characters("&&&")
   end
 
   def test_diactritics_removal
@@ -49,4 +48,13 @@ class StemmerTest < Test::Unit::TestCase
     assert_equal "خرع بطر من اليمينيوم يمكن حمل في اقل من دقيق", NlpArabic.stem_text("إختراع بطاريات من الأليمينيوم يمكن تحميلها في أقل من دقيقة")
   end
 
+  def test_is_alphanumeric
+    assert_equal true, NlpArabic.is_alpha("بطر")
+    assert_equal false, NlpArabic.is_alpha("!!بطر(")
+    assert_equal false, NlpArabic.is_alpha(".(")
+  end
+
+  def test_clean_text
+    assert_equal "آخر الأخبار الدولية منظور أوروبي", NlpArabic.clean_text("آخر الأخبار الدولية من منظور أوروبي")
+  end 
 end
