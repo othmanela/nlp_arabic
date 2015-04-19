@@ -46,7 +46,7 @@ Once installed, you can use it like this:
 
   NlpArabic.tokenize_text(text) will break the text into an array of words and delimiters.
 
-Each step of the ISRI algorithm is coded in a separate function so you should be able to find
+Each step of the ISRI algorithm is coded in a separate function so you should be able to find the helper function you may be looking for just by browsing the code.
 
 Development
 ===========
