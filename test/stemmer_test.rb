@@ -56,5 +56,19 @@ class StemmerTest < Test::Unit::TestCase
 
   def test_clean_text
     assert_equal "آخر الأخبار الدولية منظور أوروبي", NlpArabic.clean_text("آخر الأخبار الدولية من منظور أوروبي")
+    assert_equal "مبتكر كرواتي مجال التكنولوجيا", NlpArabic.clean_text("مبتكر كرواتي في مجال التكنولوجيا")
   end 
+
+  def test_stem_text
+    assert_equal "لبد وان تعرض وقف حرج عند يطلب بنا اعدة في حل سالة اضية", NlpArabic.stem_text("لابد وأنكم تعرضتم للموقف الحرج عندما يطلب أبناؤكم المساعدة في حل مسألة رياضية")
+    assert_equal "حمل لقب دوري بطل روبا ، بايرن ونيخ يعد زيمة ثقيل من بوردو في اراة", NlpArabic.stem_text("حامل لقب دوري أبطال أوروبا، بايرن ميونيخ يعود بهزيمة ثقيلة من بوردو في مباراة")
+  end
+
+  def test_clean_and_stem
+    assert_equal "حمل لقب دوري بطل روبا ، بايرن ونيخ يعد زيمة ثقيل بوردو اراة", NlpArabic.clean_and_stem("حامل لقب دوري أبطال أوروبا، بايرن ميونيخ يعود بهزيمة ثقيلة من بوردو في مباراة")
+  end
+
+  def test_tokenize
+    assert_equal [".", "دراسة", "سويسرية", ":", "لمس", "الهواتف", "الذكية", "ربما", "يجعلنا", "أذكى"], NlpArabic.tokenize_text(".دراسة سويسرية: لمس الهواتف الذكية ربما يجعلنا أذكى")
+  end
 end

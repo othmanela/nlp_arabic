@@ -44,6 +44,8 @@ Once installed, you can use it like this:
 
   NlpArabic.wash_and_stem(text) will stem the text removing stop words and delimiters from it.
 
+  NlpArabic.tokenize_text(text) will break the text into an array of words and delimiters.
+
 Each step of the ISRI algorithm is coded in a separate function so you should be able to find
 
 Development
