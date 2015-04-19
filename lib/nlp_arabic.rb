@@ -76,7 +76,7 @@ module NlpArabic
 
   def self.is_alpha(word)
     # checks if a word is alphanumeric
-    return !!word.match(/^[[:alnum:]]+$/)
+    return !!word.match(/^[[:alpha:]]+$/)
   end
 
   def self.remove_na_characters(word)
