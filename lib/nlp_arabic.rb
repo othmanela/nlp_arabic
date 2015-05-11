@@ -67,11 +67,13 @@ module NlpArabic
   end
 
   def self.wash_and_stem(text)
-    clean_text = text.gsub(/[._,،\"\':;&?؟()]/, '').split - NlpArabic::STOP_LIST
+    clean_text = text.gsub(/[._,،\"\':–%\/;·&?؟()\”\“]/, '').split - NlpArabic::STOP_LIST
+    new_text = []
     for i in (0..(clean_text.length-1))
-      clean_text[i]= stem(clean_text[i]) if NlpArabic.is_alpha(clean_text[i])
+      new_text << stem(clean_text[i]) if NlpArabic.is_alpha(clean_text[i])
     end
-    return clean_text.join(' ')
+    new_text -= NlpArabic::STOP_LIST
+    return new_text.join(' ')
   end
 
   def self.is_alpha(word)
@@ -81,7 +83,7 @@ module NlpArabic
 
   def self.remove_na_characters(word)
     # cleans the word from non alphanumeric characters
-    return word.strip.gsub(/[._,،\"\':;&?؟()]/, '')
+    return word.strip.gsub(/[._,،\"\':–%\/;·&?؟()\”\“]/, '')
   end
 
   def self.remove_diacritics(word)

@@ -4,7 +4,7 @@ NlpArabic
 This gem is intended to contain tools for Arabic Natural Language Processing. 
 As of version 0.1, this toolkit gem allows you to:
 
-1. Clean a text using a stop list. This stop list was generated using the tf-idf score calculated on words from over 400 articles. The words selected have also been checked and validated by hand which resulted in a stop list of over 165 words.
+1. Clean a text using a stop list. This stop list was generated using the tf-idf score calculated on words from over 400 articles. The words selected have also been checked and validated by hand which resulted in a stop list of over 270 words.
 
 2. Stem a word or a text. The stemming algorithm used is the ISRI Arabic stemmer. It is described in the following research paper: 
 
